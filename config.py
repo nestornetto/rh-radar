@@ -7,42 +7,44 @@ load_dotenv()
 # Cargo forte: título que só existe mesmo em vaga de dados/BI, sem
 # possibilidade real de ser outra área.
 KEYWORDS_CARGO_FORTE = [
-    "Analista de Dados",
-    "Analista BI",
-    "Analista de BI",
-    "Business Intelligence",
-    "Data Analytics",
-    "Analista de Analytics",
-    "Data Analyst",
-    "Desenvolvedor BI",
-    "Consultor BI",
-    "Analista de Inteligência de Negócios",
-    "BI Developer",
-    "BI Analyst",
-    "Analista de Reporting",
-    "Analista de Inteligência de Mercado",
-    "Analista de Indicadores",
-    "Reporting Analyst",
-    "Insights Analyst",
-    "Data Insights Analyst",
-    "MIS Analyst",
-    "Analista de MIS",
-    "Assistente de BI",
-    "Auxiliar de BI",
-    "Analista de Inteligência Comercial",
-    "Data Specialist",
-    "Data Quality Analyst",
-    "Data Intelligence Analyst",
-    "BI & Analytics Analyst",
-    "Analytics Specialist",
-    "Especialista em Dados",
-    "Analista de Planejamento e Dados",
-    # "Datos" (espanhol) não é "Dados" (português) — nenhuma keyword em
-    # português cobre título em espanhol, mesmo sendo a mesma vaga. Faz
-    # sentido aqui no pipeline BR (não só em config_intl.py) porque
-    # LinkedInScraper já busca em Argentina/Chile (ver LOCATIONS_LINKEDIN).
-    "Analista de Datos",
-    "Analítica de Datos",
+# Comercial e pré-vendas
+    "SDR",
+    "Sales Development Representative",
+    "BDR",
+    "Business Development Representative",
+    "Representante de Desenvolvimento de Vendas",
+    "Pré-vendas",
+    "Analista de Pré-vendas",
+    "Assistente de Pré-vendas",
+    "Inside Sales",
+    "Assistente Comercial",
+    "Auxiliar Comercial",
+
+    # Administrativo, documentos e jurídico
+    "Assistente Administrativo",
+    "Auxiliar Administrativo",
+    "Assistente de Backoffice",
+    "Analista de Backoffice",
+    "Assistente de Subsídios",
+    "Analista de Subsídios",
+    "Subsídios Judiciais",
+    "Assistente de Documentação",
+    "Analista de Documentação",
+    "Analista Documental",
+    "Assistente Jurídico",
+    "Auxiliar Jurídico",
+
+    # Atendimento, relacionamento e suporte
+    "Analista de Atendimento",
+    "Assistente de Atendimento",
+    "Atendente de Relacionamento",
+    "Analista de Relacionamento",
+    "Assistente de Relacionamento",
+    "Analista de Suporte",
+    "Assistente de Suporte",
+    "Suporte Técnico Júnior",
+    "Customer Support Analyst",
+    "Customer Service Analyst",
 ]
 
 # Cargo ambíguo: título que também é usado em vaga sem nada a ver com
@@ -52,26 +54,43 @@ KEYWORDS_CARGO_FORTE = [
 # adicionando cargo adjacente (Product Analyst, CRM Analyst, Marketing
 # Analyst etc.) sem cada um virar fonte de ruído sozinho.
 KEYWORDS_CARGO_AMBIGUO = [
-    "Business Analyst",
-    "Analista de Negócios",
-    "Business Analytics",
-    "Analista de Performance",
+    "Analista Comercial",
+    "Consultor Comercial",
+    "Executivo Comercial",
+    "Analista de Operações",
+    "Assistente de Operações",
+    "Customer Experience",
+    "Customer Success",
 ]
 
 # Termo que precisa aparecer junto no título quando o cargo é ambíguo, pra
 # confirmar que é vaga de dados/BI e não de outra área qualquer.
 QUALIFICADORES_DADOS = [
-    "dados",
-    "data",
-    "bi",
-    "sql",
-    "power bi",
-    "analytics",
-    "kpi",
-    "dashboard",
-    "métricas",
-    "reporting",
-    "insights",
+    "vendas",
+    "sales",
+    "comercial",
+    "prospecção",
+    "prospeccao",
+    "pré-vendas",
+    "pre-vendas",
+    "leads",
+    "inbound",
+    "outbound",
+    "sdr",
+    "bdr",
+    "crm",
+    "saas",
+    "atendimento",
+    "relacionamento",
+    "suporte",
+    "customer",
+    "backoffice",
+    "documentação",
+    "documentacao",
+    "subsídios",
+    "subsidios",
+    "jurídico",
+    "juridico",
 ]
 
 # Ferramenta que aparece como núcleo do título ("Analista de Power BI").
@@ -81,7 +100,9 @@ QUALIFICADORES_DADOS = [
 # sozinho aprovaria "Power BI Senior" e "Desenvolvedor (Power BI + Python)",
 # que são vaga de desenvolvimento, não de análise.
 FERRAMENTAS_TITULO = [
-    "Power BI",
+    "CRM",
+    "Salesforce",
+    "HubSpot",
 ]
 
 # Palavra de cargo que confirma que a vaga de ferramenta é de análise.
@@ -89,11 +110,13 @@ FERRAMENTAS_TITULO = [
 # mantém vaga de dev fora do radar.
 QUALIFICADORES_CARGO = [
     "analista",
-    "analyst",
-    "especialista",
-    "specialist",
+    "assistente",
+    "auxiliar",
+    "atendente",
     "consultor",
-    "consultant",
+    "executivo",
+    "representante",
+    "especialista",
 ]
 
 KEYWORDS = KEYWORDS_CARGO_FORTE + KEYWORDS_CARGO_AMBIGUO
@@ -113,11 +136,18 @@ KEYWORDS = KEYWORDS_CARGO_FORTE + KEYWORDS_CARGO_AMBIGUO
 # por sorte via outro termo. Com a derivação automática isso não pode mais
 # acontecer — toda keyword nova em KEYWORDS já vira busca também.
 TERMOS_CARGO_EXTRA = [
-    # termos mais amplos que a keyword exata, mantidos por dar rede mais
-    # larga na busca (a keyword em si é mais restrita, de propósito, pra
-    # não gerar falso positivo no filtro de título).
-    "power bi",
-    "inteligência de mercado",
+    "SDR Júnior",
+    "SDR Inbound",
+    "SDR Outbound",
+    "BDR Júnior",
+    "pré-vendas SaaS",
+    "assistente comercial",
+    "assistente administrativo",
+    "análise documental",
+    "subsídios judiciais",
+    "atendimento ao cliente",
+    "suporte júnior",
+    "backoffice",
 ]
 
 TERMOS_CARGO = sorted(set(k.lower() for k in KEYWORDS) | set(TERMOS_CARGO_EXTRA))
@@ -133,12 +163,14 @@ TERMOS_CARGO = sorted(set(k.lower() for k in KEYWORDS) | set(TERMOS_CARGO_EXTRA)
 # confirma o padrão relatado. Removidos por render zero e custarem sessão
 # igual a um termo de cargo.
 TERMOS_FERRAMENTA = [
-    "sql",
-    "python",
-    "tableau",
-    "qlik",
-    "looker",
-    "bigquery",
+    "CRM",
+    "Salesforce",
+    "HubSpot",
+    "SaaS",
+    "prospecção",
+    "qualificação de leads",
+    "atendimento ao cliente",
+    "análise documental",
 ]
 
 TERMOS_BUSCA = TERMOS_CARGO + TERMOS_FERRAMENTA
@@ -156,17 +188,13 @@ TERMOS_POR_CICLO = 10
 
 CIDADES = [
     "Remoto",
-    "Campina Grande",
-    "João Pessoa",
-    "Recife",
-    "Natal",
-    "Maceió",
-    "Jaboatão",
-    "Aracaju",
-    "Teresina",
-    "São Luís",
-    "Petrolina",
-    "Caruaru",
+    "Remote",
+    "Home Office",
+    "Brasil",
+    "São Paulo",
+    "São Paulo - SP",
+    "São Paulo, SP",
+    "Osasco",
 ]
 
 # MEDIDO: "Data Analyst @ Lisboa" e "Analista de Datos @ Madrid" reprovavam
@@ -224,7 +252,7 @@ LOCATIONS_LINKEDIN = ["Brasil"]
 # (LOCATIONS_INTL) — evita arriscar nome de país nunca testado (grafia
 # errada ou região que o LinkedIn não resolve como location de verdade,
 # como já visto com "LATAM"/"Latin America").
-LOCATIONS_LINKEDIN_REMOTO_APENAS = ["Argentina", "Chile", "México", "Colômbia", "Espanha", "Portugal"]
+LOCATIONS_LINKEDIN_REMOTO_APENAS = []
 
 # Mercado que a vaga remota precisa aceitar pra contar, quando o texto de
 # local DECLARA um escopo geográfico ("Remote — US only", "Remote — India").
@@ -246,8 +274,7 @@ LOCATIONS_LINKEDIN_REMOTO_APENAS = ["Argentina", "Chile", "México", "Colômbia"
 # quando o texto disser isso literalmente (guarda-chuva de verdade, não
 # substituto de nome de país). Portugal e Espanha entraram nominalmente
 # pelo mesmo motivo, desde antes.
-MERCADOS_REMOTO_ACEITOS = ["Brasil", "LATAM", "Argentina", "Chile", "México", "Colômbia", "Portugal", "Espanha"]
-
+MERCADOS_REMOTO_ACEITOS = ["Brasil"]
 INTERVALO_MINUTOS = int(os.getenv("INTERVALO_MINUTOS", 180))
 
 # Digest ranqueado (item 08): vaga com Job.pontuar_relevancia() >= este

@@ -513,7 +513,7 @@ def extrair_escopo_remoto(texto_local: str, modalidade: str = "") -> set[str]:
     # antes dela. Checa todo segmento separado por vírgula que NÃO seja o
     # primeiro (o primeiro é sempre a cidade nesse formato, nunca a sigla)
     # — ver comentário de _SIGLAS_ESTADOS_EUA acima.
-    segmentos = [s.strip(" .") for s in resto.split(",")]
+    segmentos = [s.strip(" .") for s in re.split(r",|\s+-\s+", resto)]
     cidade = segmentos[0] if segmentos else ""
     for seg in segmentos[1:]:
         # UF brasileira primeiro: só as 6 ambíguas (colidem com sigla dos
