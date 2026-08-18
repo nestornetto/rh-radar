@@ -7,44 +7,42 @@ load_dotenv()
 # Cargo forte: título que só existe mesmo em vaga de dados/BI, sem
 # possibilidade real de ser outra área.
 KEYWORDS_CARGO_FORTE = [
-# Comercial e pré-vendas
-    "SDR",
-    "Sales Development Representative",
-    "BDR",
-    "Business Development Representative",
-    "Representante de Desenvolvimento de Vendas",
-    "Pré-vendas",
-    "Analista de Pré-vendas",
-    "Assistente de Pré-vendas",
-    "Inside Sales",
-    "Assistente Comercial",
-    "Auxiliar Comercial",
-
-    # Administrativo, documentos e jurídico
-    "Assistente Administrativo",
-    "Auxiliar Administrativo",
-    "Assistente de Backoffice",
-    "Analista de Backoffice",
-    "Assistente de Subsídios",
-    "Analista de Subsídios",
-    "Subsídios Judiciais",
-    "Assistente de Documentação",
-    "Analista de Documentação",
-    "Analista Documental",
-    "Assistente Jurídico",
-    "Auxiliar Jurídico",
-
-    # Atendimento, relacionamento e suporte
-    "Analista de Atendimento",
-    "Assistente de Atendimento",
-    "Atendente de Relacionamento",
-    "Analista de Relacionamento",
-    "Assistente de Relacionamento",
-    "Analista de Suporte",
-    "Assistente de Suporte",
-    "Suporte Técnico Júnior",
-    "Customer Support Analyst",
-    "Customer Service Analyst",
+    "Assistente de Recursos Humanos",
+    "Assistente de RH",
+    "Auxiliar de Recursos Humanos",
+    "Auxiliar de RH",
+    "Analista de Recursos Humanos Júnior",
+    "Analista de Recursos Humanos Junior",
+    "Analista de Recursos Humanos Jr",
+    "Analista de RH Júnior",
+    "Analista de RH Junior",
+    "Analista de RH Jr",
+    "Analista de RH I",
+    "Analista de Recursos Humanos I",
+    "Assistente de Recrutamento e Seleção",
+    "Auxiliar de Recrutamento e Seleção",
+    "Assistente de R&S",
+    "Auxiliar de R&S",
+    "Assistente de Departamento Pessoal",
+    "Auxiliar de Departamento Pessoal",
+    "Assistente de Administração de Pessoal",
+    "Auxiliar de Administração de Pessoal",
+    "People Operations Assistant",
+    "People Assistant",
+    "Talent Acquisition Assistant",
+    "Recruiting Assistant",
+    "Recruiter Júnior",
+    "Recruiter Junior",
+    "Recruiter Jr",
+    "Recrutador Júnior",
+    "Recrutador Junior",
+    "Recrutador Jr",
+    "Talent Acquisition Júnior",
+    "Talent Acquisition Junior",
+    "Talent Acquisition Jr",
+    "People Operations Júnior",
+    "People Operations Junior",
+    "People Operations Jr",
 ]
 
 # Cargo ambíguo: título que também é usado em vaga sem nada a ver com
@@ -54,43 +52,29 @@ KEYWORDS_CARGO_FORTE = [
 # adicionando cargo adjacente (Product Analyst, CRM Analyst, Marketing
 # Analyst etc.) sem cada um virar fonte de ruído sozinho.
 KEYWORDS_CARGO_AMBIGUO = [
-    "Analista Comercial",
-    "Consultor Comercial",
-    "Executivo Comercial",
-    "Analista de Operações",
-    "Assistente de Operações",
-    "Customer Experience",
-    "Customer Success",
+    "Assistente Administrativo",
+    "Auxiliar Administrativo",
+    "Analista Administrativo",
+    "People Operations",
+    "Talent Acquisition",
+    "Recrutador",
+    "Recruiter",
 ]
 
 # Termo que precisa aparecer junto no título quando o cargo é ambíguo, pra
 # confirmar que é vaga de dados/BI e não de outra área qualquer.
 QUALIFICADORES_DADOS = [
-    "vendas",
-    "sales",
-    "comercial",
-    "prospecção",
-    "prospeccao",
-    "pré-vendas",
-    "pre-vendas",
-    "leads",
-    "inbound",
-    "outbound",
-    "sdr",
-    "bdr",
-    "crm",
-    "saas",
-    "atendimento",
-    "relacionamento",
-    "suporte",
-    "customer",
-    "backoffice",
-    "documentação",
-    "documentacao",
-    "subsídios",
-    "subsidios",
-    "jurídico",
-    "juridico",
+    "recursos humanos",
+    "rh",
+    "recrutamento",
+    "seleção",
+    "selecao",
+    "departamento pessoal",
+    "dp",
+    "administração de pessoal",
+    "administracao de pessoal",
+    "people",
+    "talent",
 ]
 
 # Ferramenta que aparece como núcleo do título ("Analista de Power BI").
@@ -99,24 +83,17 @@ QUALIFICADORES_DADOS = [
 # domínio, aqui a ferramenta é ambígua e pede cargo. Sem isso, "Power BI"
 # sozinho aprovaria "Power BI Senior" e "Desenvolvedor (Power BI + Python)",
 # que são vaga de desenvolvimento, não de análise.
-FERRAMENTAS_TITULO = [
-    "CRM",
-    "Salesforce",
-    "HubSpot",
-]
+FERRAMENTAS_TITULO = []
 
 # Palavra de cargo que confirma que a vaga de ferramenta é de análise.
 # "desenvolvedor"/"developer"/"engenheiro" ficam FORA de propósito: é o que
 # mantém vaga de dev fora do radar.
 QUALIFICADORES_CARGO = [
-    "analista",
     "assistente",
     "auxiliar",
-    "atendente",
-    "consultor",
-    "executivo",
-    "representante",
-    "especialista",
+    "analista",
+    "recrutador",
+    "recruiter",
 ]
 
 KEYWORDS = KEYWORDS_CARGO_FORTE + KEYWORDS_CARGO_AMBIGUO
@@ -136,18 +113,19 @@ KEYWORDS = KEYWORDS_CARGO_FORTE + KEYWORDS_CARGO_AMBIGUO
 # por sorte via outro termo. Com a derivação automática isso não pode mais
 # acontecer — toda keyword nova em KEYWORDS já vira busca também.
 TERMOS_CARGO_EXTRA = [
-    "SDR Júnior",
-    "SDR Inbound",
-    "SDR Outbound",
-    "BDR Júnior",
-    "pré-vendas SaaS",
-    "assistente comercial",
-    "assistente administrativo",
-    "análise documental",
-    "subsídios judiciais",
-    "atendimento ao cliente",
-    "suporte júnior",
-    "backoffice",
+    "assistente de rh",
+    "auxiliar de rh",
+    "analista de rh júnior",
+    "analista de rh jr",
+    "assistente de recursos humanos",
+    "auxiliar de recursos humanos",
+    "assistente de recrutamento e seleção",
+    "auxiliar de recrutamento e seleção",
+    "assistente de departamento pessoal",
+    "auxiliar de departamento pessoal",
+    "assistente administrativo rh",
+    "people operations assistant",
+    "talent acquisition assistant",
 ]
 
 TERMOS_CARGO = sorted(set(k.lower() for k in KEYWORDS) | set(TERMOS_CARGO_EXTRA))
@@ -163,14 +141,13 @@ TERMOS_CARGO = sorted(set(k.lower() for k in KEYWORDS) | set(TERMOS_CARGO_EXTRA)
 # confirma o padrão relatado. Removidos por render zero e custarem sessão
 # igual a um termo de cargo.
 TERMOS_FERRAMENTA = [
-    "CRM",
-    "Salesforce",
-    "HubSpot",
-    "SaaS",
-    "prospecção",
-    "qualificação de leads",
-    "atendimento ao cliente",
-    "análise documental",
+    "recursos humanos",
+    "recrutamento e seleção",
+    "departamento pessoal",
+    "administração de pessoal",
+    "people operations",
+    "talent acquisition",
+    "psicologia organizacional",
 ]
 
 TERMOS_BUSCA = TERMOS_CARGO + TERMOS_FERRAMENTA
